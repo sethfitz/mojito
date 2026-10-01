@@ -41,6 +41,7 @@
 		32C650C3EEA85B4276EDB33B /* s10.bin in Resources */ = {isa = PBXBuildFile; fileRef = 73FCCFD6A9499FB84B690194 /* s10.bin */; };
 		340DAC1A3E1A94B6CB4C21D1 /* TextInserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F34180D15CF8B53F58B2A2 /* TextInserter.swift */; };
 		368FCAE7AAA6BB9F89291A1D /* SosumiSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300590ABBE9E070A97FCFF92 /* SosumiSound.swift */; };
+		385A6398C10A67B807AF56BC /* KlipyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95680766E7F3D9EEC81CC04 /* KlipyAPI.swift */; };
 		39B9D624EF57D466C90D82B6 /* FlyingToasters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF44D58B49F923004BEED6E7 /* FlyingToasters.swift */; };
 		3A1D0703956CF479D99BBB1A /* WordleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7ACE7E64FDA50492BD8570 /* WordleGame.swift */; };
 		3A290EFA4E50DE37FFEDF912 /* WarpSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903710C7A46FB1BB47A47BA /* WarpSound.swift */; };
@@ -91,7 +92,6 @@
 		84EDC215BBA74C168E6E96B2 /* MatrixRain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF280ABF42475053B4EB56 /* MatrixRain.swift */; };
 		8669DFC49B3F7DBE689337C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5C937DB8C91F3847F55D8A6 /* Assets.xcassets */; };
 		87092993DA5EF300593E8021 /* s07.bin in Resources */ = {isa = PBXBuildFile; fileRef = C876AD00FBA92A6CA56ABD95 /* s07.bin */; };
-		87514A922406A1535D7BCB42 /* EmbeddedGiphyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7292DF1A52CC009F5780BB22 /* EmbeddedGiphyKey.swift */; };
 		8766D3C09A87866098D979B0 /* TicTacToeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F08FB28C8998B7F7075BB /* TicTacToeGame.swift */; };
 		87ACEE7E1331065BA81E0B52 /* KeyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561D5F53503A9DDE7BE03430 /* KeyMonitor.swift */; };
 		87F16A28F58C4854576DD450 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B06D1C751C2161A7A99DA1 /* AppDelegate.swift */; };
@@ -105,6 +105,7 @@
 		91A5F2A800EA1FC0700394EA /* SymbolsDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25EC50F4D58E03E218947DF /* SymbolsDatabaseTests.swift */; };
 		9234FF3040DB70F660567DCB /* v12.bin in Resources */ = {isa = PBXBuildFile; fileRef = 8616DAC09008096A70541CEE /* v12.bin */; };
 		97BAD861F4CA98B71C2670FB /* AliasesSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF593CBC722955734BC5166E /* AliasesSettings.swift */; };
+		98422299C980042CFA642B78 /* KlipyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB65C36C1B1D1A3ECADC6FE /* KlipyAPITests.swift */; };
 		9CB4AA2C8D9DE6B788068AA9 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = EB2F085FF2A8206D2905DF27 /* Sparkle */; };
 		9CCEA0B70EEB77F988521DDB /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA7C9FD3286A7839BA642D /* AppInfo.swift */; };
 		9E9309E8AF1F9D8B44213729 /* EmoticonTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB27C78330DB1E6F05BDAE7 /* EmoticonTableTests.swift */; };
@@ -113,6 +114,7 @@
 		9FE6DD159CABAE6FAC74E6BD /* TriggerConfigStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F335AAB3008F02F987CB8DC2 /* TriggerConfigStoreTests.swift */; };
 		A11509496D8522DC13BF31F3 /* QueryStemmerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6401923F7190AFC65A7B6959 /* QueryStemmerTests.swift */; };
 		A1C87132DCD9B263CA32BAAE /* WordleSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F82574CC8A6D051CF87D9B /* WordleSounds.swift */; };
+		A5F633CD57A1712BFA68299F /* EmbeddedKlipyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041E4CFE35F8CAE3B313669 /* EmbeddedKlipyKey.swift */; };
 		A637DCA2905238217427E806 /* EmojiBrowserCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C001583E27CC71D9959055 /* EmojiBrowserCatalog.swift */; };
 		A9A15B339C05195BB45CC09F /* MyLegSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C4C16E01184684E33C3437 /* MyLegSound.swift */; };
 		A9CDDCEBAC41BF8676B8F2EC /* EasterEggTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3188FF1FD6559BF8E64C19CC /* EasterEggTracker.swift */; };
@@ -156,6 +158,7 @@
 		DD501615C4A6623E5BA03369 /* EmojiDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B842CBBD6C7466F9BA2786 /* EmojiDatabaseTests.swift */; };
 		DD75EE1DF9351238356F60E7 /* SkinTone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B375DE27AC0AE1D8DE965403 /* SkinTone.swift */; };
 		DF4F5EB36D764A99CAB8CADB /* WilhelmScream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088608D6A2243D8E95953095 /* WilhelmScream.swift */; };
+		DFEEAE1A2B798418F4DF2293 /* GifPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E8123A15F116BF7B631277 /* GifPickerViewModelTests.swift */; };
 		E29AE211BD536EA5FD09BF0E /* v11.bin in Resources */ = {isa = PBXBuildFile; fileRef = D3C7F5A4189B7652C993C384 /* v11.bin */; };
 		E3B84D347FB801B6A62E980D /* v06.bin in Resources */ = {isa = PBXBuildFile; fileRef = FACE9E8BAF08240551D5237A /* v06.bin */; };
 		E41E62A3741D084E3630FDEC /* AudioBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE1B7DD5243E817418580C /* AudioBlob.swift */; };
@@ -210,6 +213,7 @@
 		151DC25F7CEE4F3BE8F23650 /* CRTPowerOff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRTPowerOff.swift; sourceTree = "<group>"; };
 		160FA9BBA311F77BEBE0C6A4 /* GifPickerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifPickerWindow.swift; sourceTree = "<group>"; };
 		162291D3BD8AF6CD22BE0378 /* AnimationTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTicker.swift; sourceTree = "<group>"; };
+		16E8123A15F116BF7B631277 /* GifPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifPickerViewModelTests.swift; sourceTree = "<group>"; };
 		186ED6EF6F678E8C3F082FD8 /* MoofSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoofSound.swift; sourceTree = "<group>"; };
 		19FC0DC96883A143602E6668 /* GifClipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifClipboard.swift; sourceTree = "<group>"; };
 		1A1F4596F8DFA66A87D50D02 /* OnboardingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWindowController.swift; sourceTree = "<group>"; };
@@ -271,7 +275,6 @@
 		70F2866D3BE0CC5D08CF9AD1 /* Emoji */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Emoji; path = Resources/Emoji; sourceTree = SOURCE_ROOT; };
 		71409240C4105D980C71E264 /* AliasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasTests.swift; sourceTree = "<group>"; };
 		7161D8677669C3B6B7947ECF /* InlineBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineBrowserView.swift; sourceTree = "<group>"; };
-		7292DF1A52CC009F5780BB22 /* EmbeddedGiphyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedGiphyKey.swift; sourceTree = "<group>"; };
 		732EB5A5F830B83AD2A745AB /* ClickAwayMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickAwayMonitor.swift; sourceTree = "<group>"; };
 		73FCCFD6A9499FB84B690194 /* s10.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = s10.bin; sourceTree = "<group>"; };
 		74DB9192DF20F83CAD8A820C /* ImageBlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBlob.swift; sourceTree = "<group>"; };
@@ -314,6 +317,7 @@
 		ABF01308E9212227B8106776 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		AD72EE1D10D399387F1DD1C8 /* BlueScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueScreen.swift; sourceTree = "<group>"; };
 		AEA05D792327D50DA2FCF35B /* TelemetryUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryUploader.swift; sourceTree = "<group>"; };
+		AEB65C36C1B1D1A3ECADC6FE /* KlipyAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlipyAPITests.swift; sourceTree = "<group>"; };
 		B000574456AD1D158ED5C88B /* v08.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = v08.bin; sourceTree = "<group>"; };
 		B05F08FB28C8998B7F7075BB /* TicTacToeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeGame.swift; sourceTree = "<group>"; };
 		B0953EA30C5D11ACF280D7A2 /* Trogdor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trogdor.swift; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 		C4D63BC4F9673FBBC43A3699 /* BrowserURLCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserURLCacheTests.swift; sourceTree = "<group>"; };
 		C7CD240E9450366313F15198 /* PrivacyPermissionsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPermissionsSettings.swift; sourceTree = "<group>"; };
 		C876AD00FBA92A6CA56ABD95 /* s07.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = s07.bin; sourceTree = "<group>"; };
+		C95680766E7F3D9EEC81CC04 /* KlipyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlipyAPI.swift; sourceTree = "<group>"; };
 		CAD51C35233BDBC98AE0418B /* TelemetryConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryConsent.swift; sourceTree = "<group>"; };
 		CB7ACE7E64FDA50492BD8570 /* WordleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleGame.swift; sourceTree = "<group>"; };
 		CC7FAA0B07F70AE965ACC79B /* TriggerMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerMatcherTests.swift; sourceTree = "<group>"; };
@@ -370,6 +375,7 @@
 		ED949C65ADD9439C1E247759 /* TriggerConfigStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerConfigStore.swift; sourceTree = "<group>"; };
 		EE4174E56EEBEA3423926E2A /* v10.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = v10.bin; sourceTree = "<group>"; };
 		EF96A1DA7100EFFEEEEF8B7D /* Mojito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mojito.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F041E4CFE35F8CAE3B313669 /* EmbeddedKlipyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedKlipyKey.swift; sourceTree = "<group>"; };
 		F335AAB3008F02F987CB8DC2 /* TriggerConfigStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerConfigStoreTests.swift; sourceTree = "<group>"; };
 		F36FC6BE9A109EAEE6A18CE1 /* AmbientEmoticonTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientEmoticonTableTests.swift; sourceTree = "<group>"; };
 		F5C5BC5F015CABDD85262258 /* SeasonalGates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalGates.swift; sourceTree = "<group>"; };
@@ -409,6 +415,8 @@
 				48BC327DAE8D5D1A43640CF2 /* FavoritesBrowseTests.swift */,
 				42FA18E36A4027D4CB96ADA5 /* FuzzyMatcherTests.swift */,
 				69CD38087938C1E258718C69 /* FzyScorerTests.swift */,
+				16E8123A15F116BF7B631277 /* GifPickerViewModelTests.swift */,
+				AEB65C36C1B1D1A3ECADC6FE /* KlipyAPITests.swift */,
 				12F71260B63547A6DF1B01AD /* PickerViewModelTests.swift */,
 				6401923F7190AFC65A7B6959 /* QueryStemmerTests.swift */,
 				9E0C646543028E968FB6287E /* SeasonalGatesTests.swift */,
@@ -678,13 +686,14 @@
 			isa = PBXGroup;
 			children = (
 				C31E41F813A67872400E4942 /* AnimatedGifView.swift */,
-				7292DF1A52CC009F5780BB22 /* EmbeddedGiphyKey.swift */,
+				F041E4CFE35F8CAE3B313669 /* EmbeddedKlipyKey.swift */,
 				1B02E1E7C31A388F8B220B6B /* GifAsset.swift */,
 				19FC0DC96883A143602E6668 /* GifClipboard.swift */,
 				C02399494F4CF5825B0401CD /* GifPickerView.swift */,
 				BC98E3E280416083D33326C7 /* GifPickerViewModel.swift */,
 				160FA9BBA311F77BEBE0C6A4 /* GifPickerWindow.swift */,
 				1C3CAFD7B83168FF01538FF4 /* GifSearcher.swift */,
+				C95680766E7F3D9EEC81CC04 /* KlipyAPI.swift */,
 			);
 			path = GifPicker;
 			sourceTree = "<group>";
@@ -764,7 +773,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B22E14D9C07C47B848B746C5 /* Build configuration list for PBXNativeTarget "Mojito" */;
 			buildPhases = (
-				FFBF4DE46DB4DBF9742F2CE1 /* Embed Giphy API key */,
+				33EE4F5D4D8105E186A5B4FF /* Embed KLIPY API key */,
 				7D6CE5B5A02283C4796414C4 /* Sources */,
 				15601F46DFE7F12B9FBCDA4F /* Resources */,
 				8D12BBB2D5095D17E64B4D0C /* Frameworks */,
@@ -885,6 +894,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		33EE4F5D4D8105E186A5B4FF /* Embed KLIPY API key */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Embed KLIPY API key";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT\" && python3 scripts/build_klipy_key.py\n";
+		};
 		F884B59CE84901BB69664608 /* Install Mojito Dev to /Applications (Debug only) */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -903,25 +931,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"$CONFIGURATION\" = \"Debug\" ]; then\n  # Xcode 26's build system schedules this script BEFORE the\n  # bundle's implicit codesign step (and serializes them — we\n  # can't poll-wait because codesign blocks on us finishing).\n  # So we sign the destination ourselves with the same identity\n  # Xcode uses (`EXPANDED_CODE_SIGN_IDENTITY` is the cert SHA-1).\n  # Sparkle.framework was signed earlier in the build and rsyncs\n  # over already-signed; we just need to (re)sign the dylibs and\n  # the bundle wrapper.\n  rsync -a --delete \"$TARGET_BUILD_DIR/$WRAPPER_NAME/\" \"/Applications/$WRAPPER_NAME/\"\n  DEST=\"/Applications/$WRAPPER_NAME\"\n  for f in \"$DEST/Contents/MacOS\"/*.dylib; do\n    [ -f \"$f\" ] && codesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" \\\n      --options runtime --timestamp=none \"$f\" >/dev/null\n  done\n  codesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" \\\n    --entitlements \"$SRCROOT/$CODE_SIGN_ENTITLEMENTS\" \\\n    --options runtime --timestamp=none \"$DEST\" >/dev/null\n  echo \"Copied $WRAPPER_NAME to /Applications/ (signed in place)\"\n  # If the app was already running, quit and relaunch from the new\n  # build. `pkill` returns 0 only when it actually signalled something,\n  # which doubles as our \"was running\" check — skip the relaunch on\n  # a cold build so we don't surprise-launch the app.\n  APP_NAME=\"${WRAPPER_NAME%.app}\"\n  if pkill -x \"$APP_NAME\" 2>/dev/null; then\n    # Wait for clean exit so `open` picks up the freshly-copied bundle.\n    for _ in $(seq 1 10); do\n      pgrep -x \"$APP_NAME\" >/dev/null || break\n      sleep 0.1\n    done\n    open \"/Applications/$WRAPPER_NAME\"\n    echo \"Relaunched $WRAPPER_NAME\"\n  fi\nfi\n";
-		};
-		FFBF4DE46DB4DBF9742F2CE1 /* Embed Giphy API key */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Giphy API key";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT\" && python3 scripts/build_giphy_key.py\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -969,7 +978,7 @@
 				42DC32C9130BAB5381534226 /* EggIndex.swift in Sources */,
 				DADDDB9ED8378048DF84B51A /* EggSound.swift in Sources */,
 				2D020B1589F05DA6D532FAD5 /* EggStrings.swift in Sources */,
-				87514A922406A1535D7BCB42 /* EmbeddedGiphyKey.swift in Sources */,
+				A5F633CD57A1712BFA68299F /* EmbeddedKlipyKey.swift in Sources */,
 				AC7748989CE2B7D96CBB21FE /* Emoji.swift in Sources */,
 				A637DCA2905238217427E806 /* EmojiBrowserCatalog.swift in Sources */,
 				8D584DDFB9305768A3547EAA /* EmojiBrowserViewModel.swift in Sources */,
@@ -997,6 +1006,7 @@
 				CA9FE651B042EFCC920407D5 /* ImageBlob.swift in Sources */,
 				75402AE472D5B43CE11590A9 /* InlineBrowserView.swift in Sources */,
 				87ACEE7E1331065BA81E0B52 /* KeyMonitor.swift in Sources */,
+				385A6398C10A67B807AF56BC /* KlipyAPI.swift in Sources */,
 				FB6F709623B1472B32490F1D /* KonamiPayoff.swift in Sources */,
 				B33E18A7CE2409FEE3367728 /* LaunchAtLogin.swift in Sources */,
 				84EDC215BBA74C168E6E96B2 /* MatrixRain.swift in Sources */,
@@ -1077,6 +1087,8 @@
 				01491C879FFA29F7F655A6E3 /* FavoritesBrowseTests.swift in Sources */,
 				4F9E4BA7A275583B07011809 /* FuzzyMatcherTests.swift in Sources */,
 				B32AE99482DA334BDD7CEEAC /* FzyScorerTests.swift in Sources */,
+				DFEEAE1A2B798418F4DF2293 /* GifPickerViewModelTests.swift in Sources */,
+				98422299C980042CFA642B78 /* KlipyAPITests.swift in Sources */,
 				2C2FD54F6E35CCD0374213BB /* PickerViewModelTests.swift in Sources */,
 				A11509496D8522DC13BF31F3 /* QueryStemmerTests.swift in Sources */,
 				C025CD4AE30320C3FE69028A /* SeasonalGatesTests.swift in Sources */,

@@ -26,8 +26,9 @@ struct GifPickerView: View {
         if let message = viewModel.errorMessage {
             errorState(message)
         } else if viewModel.results.isEmpty {
+            // KLIPY's attribution terms require "Search KLIPY" as the prompt.
             placeholder(text: viewModel.query.isEmpty
-                        ? String(localized: "Type to search GIFs.")
+                        ? "Search KLIPY"
                         : String(localized: "Searching…"))
         } else {
             grid
@@ -153,7 +154,7 @@ struct GifPickerView: View {
         ]) {
             (
                 Text(verbatim: "Powered by ").font(.system(size: 10))
-                + Text(verbatim: "GIPHY").font(.system(size: 12, weight: .bold)).tracking(-0.4)
+                + Text(verbatim: "KLIPY").font(.system(size: 12, weight: .bold)).tracking(-0.4)
             )
             .foregroundStyle(.secondary)
             .fixedSize()
