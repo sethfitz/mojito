@@ -27,15 +27,15 @@ struct InlineBrowserView: View {
     @State private var tooltipSize: CGSize = .zero
     @State private var typedQuery = ""
     @FocusState private var searchFieldFocused: Bool
+    @Environment(\.colorScheme) private var colorScheme
 
     private static let scrollSpace = "browserScroll"
     private static let cellHeight: CGFloat = 40
     private static let rowSpacing: CGFloat = 3
     /// Tab bar height (icon row). The grid scrolls under it, so the scroll
     /// content is inset by this much at the bottom.
-    private static let tabBarHeight: CGFloat = 38
-    /// Soft fade zone above the icons where the glass ramps in from clear.
-    private static let tabBarFade: CGFloat = 26
+    private static let tabBarHeight: CGFloat = 40
+    private static let searchRowHeight: CGFloat = 48
     private let columns = Array(
         repeating: GridItem(.flexible(minimum: 36), spacing: 3),
         count: EmojiBrowserViewModel.columns
@@ -59,7 +59,7 @@ struct InlineBrowserView: View {
                     let margin: CGFloat = 6
                     let halfW = tooltipSize.width / 2
                     let x = min(max(cell.midX, halfW + margin), proxy.size.width - halfW - margin)
-                    let fitsAbove = cell.minY - margin - tooltipSize.height >= 40
+                    let fitsAbove = cell.minY - margin - tooltipSize.height >= Self.searchRowHeight + 4
                     let y = fitsAbove
                         ? cell.minY - margin - tooltipSize.height / 2
                         : cell.maxY + margin + tooltipSize.height / 2
@@ -108,12 +108,21 @@ struct InlineBrowserView: View {
             Spacer(minLength: 0)
         }
         .font(.system(size: 14))
-        .padding(.horizontal, 12)
-        .frame(height: 36)
+        .padding(.horizontal, 10)
+        .frame(height: 30)
+        .modifier(SearchFieldChrome())
+        .padding(.horizontal, 10)
+        .frame(height: Self.searchRowHeight)
+        .background(searchRowLift)
         .contentShape(Rectangle())
         .onTapGesture {
             if editableSearch { searchFieldFocused = true }
         }
+    }
+
+    /// The system picker's search header sits a step lighter than its grid.
+    private var searchRowLift: Color {
+        colorScheme == .light ? Color.white.opacity(0.2) : .clear
     }
 
     /// Blinks from the moment the browser opens: keystrokes are routed to the
@@ -134,9 +143,9 @@ struct InlineBrowserView: View {
     /// One `LazyVGrid` for the whole library (sectioned) or the flat search
     /// results. A single lazy container recycles cells correctly — splitting it
     /// per section is what let one section's glyphs ghost over another's. The
-    /// tab bar is a bottom `safeAreaInset`: content scrolls *under* it (so emoji
-    /// blur through the glass) while `scrollTo` keeps keyboard-selected cells
-    /// above it instead of leaving them hidden behind it.
+    /// tab bar insets the bottom safe area: content scrolls *under* it (so emoji
+    /// blur through it) while `scrollTo` keeps keyboard-selected cells above it
+    /// instead of leaving them hidden behind it.
     private var grid: some View {
         ScrollViewReader { proxy in
             ScrollView {
@@ -239,37 +248,16 @@ struct InlineBrowserView: View {
     // MARK: Tab bar
 
     private var categoryBar: some View {
-        ZStack(alignment: .bottom) {
-            tabBarBackdrop
-            CategoryTabBar(
-                categories: browser.visibleCategories,
-                isSearching: browser.isSearching,
-                activeCategoryPublisher: browser.activeCategoryPublisher,
-                initialActiveCategory: browser.activeCategory,
-                tabBarHeight: Self.tabBarHeight,
-                onCategory: onCategory
-            )
-        }
-        .frame(height: Self.tabBarHeight + Self.tabBarFade)
-    }
-
-    /// Glass/material masked by a vertical gradient so it fades *in* toward the
-    /// bottom — no hard top edge. Emoji scrolling under it blur and dim away as
-    /// they approach the icons, matching the native picker's bottom bar.
-    private var tabBarBackdrop: some View {
-        Rectangle().fill(.clear)
-            .modifier(TabBarGlass())
-            .mask(
-                LinearGradient(
-                    stops: [
-                        .init(color: .clear, location: 0),
-                        .init(color: .black, location: 0.55),
-                        .init(color: .black, location: 1),
-                    ],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-            )
+        CategoryTabBar(
+            categories: browser.visibleCategories,
+            isSearching: browser.isSearching,
+            activeCategoryPublisher: browser.activeCategoryPublisher,
+            initialActiveCategory: browser.activeCategory,
+            tabBarHeight: Self.tabBarHeight,
+            onCategory: onCategory
+        )
+        .modifier(TabBarBackground())
+        .overlay(alignment: .top) { hairline }
     }
 }
 
@@ -298,7 +286,7 @@ private struct BrowserCell: View {
             .frame(height: cellHeight)
             .background(
                 RoundedRectangle(cornerRadius: 9, style: .continuous)
-                    .fill(highlighted ? Color(nsColor: .unemphasizedSelectedContentBackgroundColor) : Color.clear)
+                    .fill(highlighted ? Color.pickerSelection : Color.clear)
             )
             .contentShape(Rectangle())
             .accessibilityLabel(Text(verbatim: emoji.label))
@@ -361,10 +349,10 @@ private struct CategoryTabBar: View {
                     Image(systemName: category.tabSymbol)
                         .font(.system(size: 13))
                         .foregroundStyle(isActive ? Color.primary : Color.secondary)
-                        .frame(width: 30, height: 26)
+                        .frame(width: 30, height: 28)
                         .background(
-                            RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                .fill(isActive ? Color(nsColor: .unemphasizedSelectedContentBackgroundColor) : .clear)
+                            Circle()
+                                .fill(isActive ? Color.pickerSelection : .clear)
                         )
                         .contentShape(Rectangle())
                 }
@@ -373,18 +361,38 @@ private struct CategoryTabBar: View {
             }
             Spacer(minLength: 0)
         }
-        .padding(.horizontal, 8)
+        // With the bar 40pt tall, this centers the first tab 20pt in from the
+        // bottom-left corner, so its circle is concentric with the panel's
+        // 20pt corner radius.
+        .padding(.horizontal, 5)
         .frame(height: tabBarHeight)
         .onReceive(activeCategoryPublisher) { activeCategory = $0 }
     }
 }
 
-/// Liquid-glass backdrop for the floating tab bar (Tahoe `glassEffect`),
-/// falling back to a translucent material pre-26 so emoji still show through.
-private struct TabBarGlass: ViewModifier {
+/// Capsule search field, as in the system emoji picker. On Tahoe it's its
+/// own glass, so it reads lighter than the header over dark backdrops and a
+/// touch darker over light ones, like the system field.
+private struct SearchFieldChrome: ViewModifier {
     func body(content: Content) -> some View {
         if #available(macOS 26.0, *) {
-            content.glassEffect(.regular, in: .rect)
+            content.glassEffect(.regular, in: .capsule)
+        } else {
+            content
+                .background(Capsule().fill(Color.primary.opacity(0.05)))
+                .overlay(Capsule().strokeBorder(Color.primary.opacity(0.1)))
+        }
+    }
+}
+
+/// The tab bar's strip. On Tahoe it's clear glass, which blurs the emoji
+/// passing under it into soft colour blobs as in the system picker. Regular
+/// glass, materials and the hard scroll-edge effect all hide them; a
+/// partly transparent layer leaves crisp ghost emoji instead.
+private struct TabBarBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(macOS 26.0, *) {
+            content.glassEffect(.clear, in: .rect)
         } else {
             content.background(.ultraThinMaterial)
         }
@@ -416,5 +424,6 @@ private struct SectionOffsetKey: PreferenceKey {
 enum BrowserLayout {
     static let width: CGFloat = 352
     static let height: CGFloat = 420
-    static let cornerRadius: CGFloat = 12
+    /// The system emoji picker's radius.
+    static let cornerRadius: CGFloat = 20
 }

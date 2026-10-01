@@ -186,14 +186,14 @@ private struct GifThumb: View {
     private var borderColor: Color {
         if isSelected { return .accentColor }
         // Match the emoji picker's row highlight so hover feels consistent.
-        if isHovered { return Color(nsColor: .unemphasizedSelectedContentBackgroundColor) }
+        if isHovered { return Color.pickerSelection }
         return .clear
     }
 }
 
 enum GifPickerLayout {
     static let width: CGFloat = 360
-    static let cornerRadius: CGFloat = 12
+    static let cornerRadius: CGFloat = BrowserLayout.cornerRadius
     /// Sized to show ~3.5 rows of the 3-col grid — a partial 4th row
     /// hints at scrollability without dominating screen real estate.
     static let contentHeight: CGFloat = 400

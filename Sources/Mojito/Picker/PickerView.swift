@@ -5,7 +5,7 @@ struct PickerView: View {
 
     var body: some View {
         // Chrome lives on the panel (NSGlassEffectView / NSVisualEffectView)
-        // so we match NSMenu pixel-faithfully.
+        // so it matches the system popover / menu chrome.
         if viewModel.expanded, let browser = viewModel.browser {
             InlineBrowserView(
                 browser: browser,
@@ -52,9 +52,9 @@ struct PickerView: View {
                 VStack(spacing: 0) {
                     // Scroll sentinel: scrolling to row 0 with .top would
                     // align the row's top with the scroll frame's top and
-                    // swallow the 8 pt gap. A spacer with a stable ID lets
+                    // swallow the top gap. A spacer with a stable ID lets
                     // `scrollTo("top", anchor: .top)` keep the gap visible.
-                    Color.clear.frame(height: 8).id("top")
+                    Color.clear.frame(height: PickerLayout.listTopGap).id("top")
                     ForEach(Array(viewModel.results.enumerated()), id: \.offset) { index, scored in
                         PickerRow(scored: scored, index: index, viewModel: viewModel)
                             .id(index)
@@ -64,7 +64,7 @@ struct PickerView: View {
             }
             .scrollIndicators(.never)
             .frame(
-                height: CGFloat(min(viewModel.results.count, PickerLayout.maxVisibleRows)) * PickerLayout.rowHeight + 8
+                height: CGFloat(min(viewModel.results.count, PickerLayout.maxVisibleRows)) * PickerLayout.rowHeight + PickerLayout.listTopGap
             )
             .onChange(of: viewModel.selectedIndex) { _, newIndex in
                 proxy.scrollTo(newIndex, anchor: nil)
@@ -122,11 +122,11 @@ private struct PickerRow: View {
         .padding(.vertical, 3)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
-            // Neutral gray, not accent-tinted — matches the macOS emoji
+            // Neutral, not accent-tinted — matches the macOS emoji
             // picker's selected-row style.
-            RoundedRectangle(cornerRadius: 5, style: .continuous)
-                .fill(isSelected ? Color(nsColor: .unemphasizedSelectedContentBackgroundColor) : .clear)
-                .padding(.horizontal, 4)
+            RoundedRectangle(cornerRadius: PickerLayout.selectionRadius, style: .continuous)
+                .fill(isSelected ? Color.pickerSelection : .clear)
+                .padding(.horizontal, PickerLayout.selectionInset)
         )
         .contentShape(Rectangle())
         .onTapGesture { viewModel.onPickRow?(index) }
@@ -247,7 +247,7 @@ private struct CompactCell: View {
                 topTrailingRadius: isLast ? 20 : 10,
                 style: .continuous
             )
-            .fill(isSelected ? Color(nsColor: .unemphasizedSelectedContentBackgroundColor) : Color.clear)
+            .fill(isSelected ? Color.pickerSelection : Color.clear)
             if isBrowse {
                 Image(systemName: "chevron.down")
                     .font(.system(size: 13, weight: .semibold))

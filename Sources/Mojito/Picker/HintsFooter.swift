@@ -24,10 +24,7 @@ struct KeyHintLabel: View {
                 .font(.system(size: 11, weight: .medium, design: .monospaced))
                 .padding(.horizontal, 5)
                 .padding(.vertical, 1)
-                .background(
-                    RoundedRectangle(cornerRadius: 3, style: .continuous)
-                        .fill(Color.primary.opacity(0.08))
-                )
+                .background(Capsule().fill(Color.primary.opacity(0.08)))
             if let label = hint.label {
                 Text(label)
             }
